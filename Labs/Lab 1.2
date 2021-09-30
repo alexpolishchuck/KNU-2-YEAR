@@ -1,0 +1,133 @@
+#include <iostream>
+#include <stdio.h>
+#include  <conio.h>
+#include <vector>
+
+using namespace std;
+
+class MyDices
+{
+public:
+	vector<vector<double>> dices;
+	int size = 0;
+	
+	void defsize()
+	{
+		size = dices.size();
+	}
+};
+
+ class Mysum
+{
+public:
+	vector<int> sum;
+	vector<double> prob;
+	void addsum(int newsum, double probability)
+	{
+		defsize();
+		if (i == 0)
+		{
+			sum.push_back(newsum);
+			prob.push_back(probability);
+		}
+		else {
+			int j=0;
+			for ( j = 0; j < i; j++)
+			{
+				if (sum[j] == newsum)
+				{
+					prob[j] += probability;
+					break;
+				}
+			}
+			if (j == i)
+			{
+				sum.push_back(newsum);
+				prob.push_back(probability);
+		    }
+		}
+		defsize();
+	}
+private:
+	int i;
+	void defsize()
+	{
+		i = sum.size();
+	}
+};
+ void findsum(MyDices& ds, Mysum& sums, int& sumofedges, double& prob, int counter)
+ {
+	 if (counter == ds.size)
+		 sums.addsum(sumofedges, prob);
+	 else
+	 if(counter <ds.size)
+		 for (int i = 0; i < ds.dices[counter].size(); i++)
+		 {
+			 sumofedges += i+1;
+			 prob *= ds.dices[counter][i];
+			 findsum(ds, sums, sumofedges, prob, counter + 1);
+			 sumofedges -= i+ 1;
+			 prob /= ds.dices[counter][i];
+		 }
+
+ }
+int main()
+{
+	MyDices ds;
+	Mysum sums;
+	
+
+
+	/*vector<int>edges = {2,4,6,8,10,12,20};
+	srand(time(NULL));
+		int size = rand() % 10 + 1;
+		int numberofedges, b,c;
+		
+		for (int i = 0; i < size; i++)
+		{
+			numberofedges = edges[rand() % 6];
+			vector<double>p;
+			double rest = 1;
+			
+			for (int j = 0; j < numberofedges - 1; j++)
+			{
+				int a1;
+				double a = rand() % 9 + 1;
+				double b = rand() % 200 + 150;
+				a = (a / b) * 100;
+				a1 = a;
+				a = a1;
+				a /=  100;
+				while (a >= rest || a==0)
+				{
+					 a = rand()% 9 + 1;
+					 b = rand() % 200 + 150;
+					 a = (a / b) * 100;
+					 a1 = a;
+					 a = a1;
+					 a /= 100;
+				}
+				
+				rest = rest - a;
+				p.push_back(a);
+			}
+			p.push_back(rest);
+			ds.dices.push_back(p);
+		}*/
+
+
+	
+	
+	vector<vector<double>> a = { {0.3,0.7},{0.1 , 0.4, 0.15, 0.35 } };
+	ds.dices = a;
+
+	
+
+		int sumofedges = 0;
+		double prob = 1;
+		int counter = 0;
+		ds.defsize();
+		findsum(ds, sums, sumofedges, prob, counter);
+		
+	return 0;
+}
