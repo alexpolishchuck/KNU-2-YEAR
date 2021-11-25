@@ -56,7 +56,16 @@ bool check()
     return true;
 }
 
-void checkline()
+bool checkY()
+{
+    for (int i = 0; i < 4; i++)
+        if (a[i].y + 1 >= length || field[a[i].y + 1][a[i].x])
+            return false;
+
+    return true;
+}
+
+void checkline(int *score)
 {
     int k = length - 1;
     bool answer = true;
@@ -73,7 +82,8 @@ void checkline()
         }
         if (answer == false)
             k--;
-
+        else
+            *score += 10;
 
     }
 
@@ -81,13 +91,12 @@ void checkline()
 
 void hardDrop()
 {
-    for (int i = 0; i < 4; i++)
-        if ( a[i].y + 1 >= length || field[a[i].y + 1][a[i].x])
-            return;
-
-    for (int i = 0; i < 4; i++)
-        a[i].y++;
-    
+    if (checkY())
+    {
+        for (int i = 0; i < 4; i++)
+            a[i].y++;
+    }
+    else return;
 
 }
 
@@ -102,13 +111,15 @@ void createNewFigure(int n)
     }
 }
 
+
+
 int main()
 {
     srand(time(NULL));
-    RenderWindow window(VideoMode( 500 , 750), "Sasha's Tetris", Style::Close);
-    window.setView(View(FloatRect(0, 0, 500, 750)));
+    RenderWindow window(VideoMode( 650 , 750), "Sasha's Tetris", Style::Close);
+    window.setView(View(FloatRect(0, 0, 650, 750)));
     Texture texture, bgtexture;
-    texture.loadFromFile("C:\\Users\\Admin\\Desktop\\tilestext2.png");
+    texture.loadFromFile("newtexturesforgame-1.png");
     bgtexture.loadFromFile("C:\\Users\\Admin\\Desktop\\grat.png");
     Sprite sprite(texture), bgsprite(bgtexture), oldfigsprite(texture);
     sprite.setTextureRect(IntRect(0, 0, 36, 36));
@@ -116,7 +127,8 @@ int main()
     int dx = 0;
     int rotate = 0;
     //maybe delete later, useless,idk
-    float timer = 0, delay = 0.0003, realdelay = 0.0003;
+    float  delay = 0.0003, realdelay = 0.0003;
+    int timer = 0, score = 0;
     //game mode
     bool isgamestarted = true;
     bool isgameended = false;
@@ -125,7 +137,7 @@ int main()
     //random number
     int n; 
     //Fall parameters
-    int FallSpeed = 32;
+    int FallSpeed = 412340 * 2;
     int FallTimer = 0;
     //int koef = -1;
     
@@ -134,9 +146,13 @@ int main()
 
     std::chrono::time_point<std::chrono::steady_clock> previous_time;       //added 24.11.2021
     previous_time = std::chrono::steady_clock::now();
-    int FRAME_DURATION = 16667 * 7;     //*7
+    int FRAME_DURATION = 16667 * 3;     //*7
     int increaseSpeed = 0;
    // window.setKeyRepeatEnabled(false);
+
+    //game session time
+    Clock clock;
+
 
     while (window.isOpen() && !isgameended)
     {
@@ -148,10 +164,10 @@ int main()
         Event event;
 
         /// we get time elapsed since the beginning/restart///
-        Clock clock;
-        float time = clock.getElapsedTime().asSeconds();
-        clock.restart();
-        timer += time;
+        
+        timer = clock.getElapsedTime().asSeconds();
+       // clock.restart();
+       // timer += time;
 
 
 
@@ -175,8 +191,11 @@ int main()
                         rotate = 1;
                     else if (event.key.code == Keyboard::S)
                         rotate = -1;
+                    /*else if(event.key.code==Keyboard::R)*/
+
                     else if (Keyboard::isKeyPressed(Keyboard::Down)) //delay = realdelay / 10;
                         increaseSpeed = 1;
+                    
             }
 
             ///MOVE <->///
@@ -252,57 +271,46 @@ int main()
 
 
             //// TICK////
-          //  if (timer > delay)
-            //{
+          
 
-            if (FallTimer == FallSpeed) //delete if
+            if (FallTimer >= FallSpeed) //delete if
             {
                 FallTimer = 0;
 
-                for (int i = 0; i < 4; i++)
-                {
-                    b[i] = a[i];
-                    b[i].y += 1;
-                }
-                timer = 0;
-
-            }
-                if (check())
+               
+                if (checkY())
                     for (int i = 0; i < 4; i++)
-                        a[i] = b[i];
+                        a[i].y++;
                 else
                 {
                     for (int i = 0; i < 4; i++)
                     {
                         field[a[i].y][a[i].x] = colornum;
-                        if (a[i].y == 0)                                  //added 08.07.21
-                            isgameended = true;
-                        cout << isgameended << endl;
+                        
                     }
                     colornum = 1 + rand() % 6;
                     n = rand() % 7;
-
-                    /*for (int i = 0; i < 4; i++)
-                    {
-                        a[i].x = figures[n][i] % 2;
-                        a[i].y = figures[n][i] / 2 + koef;
-                    }*/
                     createNewFigure(n);
-
                 }
+
+            }
             
-           // }
+            if(!checkY())
+            for (int i = 0; i < 4; i++)             //if touching anything
+            {
+                if (a[i].y == 0)                                
+                    isgameended = true;
+                cout << isgameended << endl;
+            }
+               
+          
 
             if (isgamestarted)
             {
                 n = rand() % 7;
 
                 createNewFigure(n);
-                //for (int i = 0; i < 4; i++)
-                //{
-                //    a[i].x = figures[n][i] % 2;
-                //    a[i].y = figures[n][i] / 2 + koef;          //delete -5;
-                //}
+         
                 isgamestarted = false;
             }
 
@@ -318,6 +326,42 @@ int main()
 
             if (FRAME_DURATION > lag)
             {
+                //InformationTab
+                RectangleShape InformationTab(Vector2f(5 * 36, 5 * 36));
+                InformationTab.setFillColor(sf::Color(0, 0, 0));
+                InformationTab.setOutlineThickness(-1);
+                InformationTab.setPosition(36* (1.5f * width - 2.5f), 36* (0.25f * length - 2.5f));
+               
+                //text inside table
+                Text text;
+                Font font;
+                font.loadFromFile("sansation.ttf");
+                text.setPosition(36 * (1.5 * width - 2.5f) + 5, 36 * (0.25f * length - 2.5f));
+                text.setString("Time: " + std::to_string(timer) +"\nScore: " + std::to_string(score));
+                text.setOutlineColor(Color::White);
+                text.setCharacterSize(18);
+                text.setFont(font);
+                text.setStyle(Text::Bold);
+                
+                //End of game text
+                Text endOfGame;
+                
+                endOfGame.setString("YOUR SCORE: " + std::to_string(score));
+                endOfGame.setCharacterSize(36);
+                endOfGame.setFont(font);
+                endOfGame.setStyle(Text::Bold);
+                endOfGame.setFillColor(Color::White);
+                endOfGame.setPosition(250, 375);
+                //EndOfGame Rect
+          
+               // RectangleShape EndOfGameTab(endOfGame.getScale());
+                RectangleShape EndOfGameTab(Vector2f(endOfGame.getLocalBounds().width,endOfGame.getLocalBounds().height*2));
+                EndOfGameTab.setFillColor(sf::Color(0, 0, 0));
+                EndOfGameTab.setOutlineThickness(-1);
+                EndOfGameTab.setPosition(250, 375);
+
+
+
 
                 RectangleShape cell(sf::Vector2f(35, 35));              //added 25.11.21
 
@@ -337,10 +381,9 @@ int main()
                 }*/
 
                 //CHECK LINE//
-                checkline();
+                checkline(&score);
 
                 
-
                 for (int i = 0; i < length; i++)
                     for (int j = 0; j < width; j++)
                     {
@@ -368,6 +411,13 @@ int main()
                     window.draw(sprite);
                 }
 
+                window.draw(InformationTab);
+                window.draw(text);
+                if (isgameended)
+                {
+                    window.draw(EndOfGameTab);
+                    window.draw(endOfGame);
+                }
                 window.display();
                 /*if (isgameended)
                     break;*/
