@@ -1,4 +1,4 @@
-    #include <iostream>
+        #include <iostream>
     #include <stdio.h>
     #include <time.h>
     #include <SFML/Graphics.hpp>
@@ -105,7 +105,7 @@
     }
 
 
-    void DrawWindow(int FRAME_DURATION, unsigned lag, int timer, int score, Sprite sprite, RenderWindow* window, int colornum,bool isgameended,Sprite oldfigsprite)
+    void DrawWindow(int FRAME_DURATION, unsigned lag, int timer, int* score, Sprite sprite, RenderWindow* window, int colornum,bool isgameended,Sprite oldfigsprite)
     {
 
         if (FRAME_DURATION > lag)
@@ -121,7 +121,7 @@
             Font font;
             font.loadFromFile("sansation.ttf");
             text.setPosition(36 * (1.5 * width - 2.5f) + 5, 36 * (0.25f * length - 2.5f));
-            text.setString("Time: " + std::to_string(timer) + "\nScore: " + std::to_string(score));
+            text.setString("Time: " + std::to_string(timer) + "\nScore: " + std::to_string(*score));
             text.setOutlineColor(Color::White);
             text.setCharacterSize(18);
             text.setFont(font);
@@ -130,7 +130,7 @@
             //End of game text
             Text endOfGame;
 
-            endOfGame.setString("YOUR SCORE: " + std::to_string(score));
+            endOfGame.setString("YOUR SCORE: " + std::to_string(*score));
             endOfGame.setCharacterSize(36);
             endOfGame.setFont(font);
             endOfGame.setStyle(Text::Bold);
@@ -165,7 +165,7 @@
             }*/
 
             //CHECK LINE//
-            checkline(&score);
+            checkline(score);
             if (isgameended)
             {
                 (*window).draw(EndOfGameTab);
@@ -430,7 +430,7 @@
               
 
                 // DRAW // 
-                DrawWindow(FRAME_DURATION, lag, timer, score, sprite, &window, colornum, isgameended, oldfigsprite);
+                DrawWindow(FRAME_DURATION, lag, timer, &score, sprite, &window, colornum, isgameended, oldfigsprite);
 
             }
 
