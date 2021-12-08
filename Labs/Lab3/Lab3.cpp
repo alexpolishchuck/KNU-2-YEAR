@@ -156,13 +156,8 @@
 
        
 
-            /*for (int i = 0; i < 4; i++)
-            {
-
-                sprite.setPosition(a[i].x * 36, a[i].y * 36);
-                sprite.move(36, 36);
-                window.draw(sprite);
-            }*/
+           
+            
 
             //CHECK LINE//
             checkline(score);
@@ -205,8 +200,7 @@
                 (*window).draw(text);
             }
             (*window).display();
-            /*if (isgameended)
-                break;*/
+            
         }
     }
 
@@ -243,7 +237,7 @@
         previous_time = std::chrono::steady_clock::now();
         int FRAME_DURATION = 16667 * 3;     //*7
         int increaseSpeed = 0;
-        // window.setKeyRepeatEnabled(false);
+        
 
          //game session time
         Clock clock;
@@ -251,7 +245,7 @@
     
     
 
-        while (window.isOpen() /*&& !isgameended*/)
+        while (window.isOpen() )
         {
             unsigned delta_time = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::steady_clock::now() - previous_time).count();
             lag += delta_time;
@@ -263,8 +257,7 @@
             /// we get time elapsed since the beginning/restart///
 
             timer = clock.getElapsedTime().asSeconds();
-            // clock.restart();
-            // timer += time;
+            
 
 
 
@@ -272,7 +265,7 @@
             while (FRAME_DURATION <= lag)
             {
                 lag -= FRAME_DURATION;
-                dx = 0;                              //delete
+                dx = 0;                            
 
                 while (window.pollEvent(event))
                 {
@@ -289,7 +282,7 @@
                             rotate = 1;
                         else if (event.key.code == Keyboard::S)
                             rotate = -1;
-                        else if (Keyboard::isKeyPressed(Keyboard::Down)) //delay = realdelay / 10;
+                        else if (Keyboard::isKeyPressed(Keyboard::Down)) 
                             increaseSpeed = 1;
                     }
                         else 
@@ -373,14 +366,14 @@
                             a[i] = b[i];
                 }
 
-                ///DROP HARD ///
+                ///Drop down///
 
                 if (increaseSpeed)
                     hardDrop();
 
 
 
-                //// TICK////
+                
 
 
                 if (FallTimer >= FallSpeed) 
@@ -406,7 +399,7 @@
                 }
 
                 if (!checkY())
-                    for (int i = 0; i < 4; i++)             //if touching anything
+                    for (int i = 0; i < 4; i++)             //if touches anything
                     {
                         if (a[i].y == 0)
                             isgameended = true;
@@ -426,10 +419,10 @@
 
                 dx = 0;
                 rotate = 0;
-                increaseSpeed = 0;             //delete
+                increaseSpeed = 0;             
               
 
-                // DRAW // 
+                // Draw window // 
                 DrawWindow(FRAME_DURATION, lag, timer, &score, sprite, &window, colornum, isgameended, oldfigsprite);
 
             }
