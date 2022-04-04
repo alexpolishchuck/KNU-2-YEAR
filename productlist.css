@@ -1,0 +1,50 @@
+/*PT Sans*/
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+/*Oswald*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=PT+Sans&display=swap');
+
+#item_holder
+{
+    display: block;
+    justify-content: space-between;
+    width: fit-content;
+    align-content: space-between;
+    flex-direction: row;
+    margin: 10px;
+}
+#catalog_item
+{
+    background-color: black;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    max-width: 200px;
+    min-width: 100px;
+    max-height: 300px;
+    min-height: 200px;
+   
+
+}
+
+#item_image
+{
+   width: 10px;
+   height: 10px;
+   background-color: aqua;
+}
+#item_description
+{
+    padding: 0 10px 0 10px;
+    color: azure;
+    max-width:inherit;
+    width: 200px;
+    overflow-wrap: break-word;
+}
+#item_footer
+{
+    margin-bottom: 0;
+    text-align: right;
+    color: chartreuse;
+    width: 90%;
+    overflow-wrap: break-word;
+}
