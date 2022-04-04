@@ -50,11 +50,12 @@ public:
     }
 
     void sort();
-
+    //returns cost of the minimal binary tree, saves sequence of nodes for building a tree
     int buildMinBinTree();
     
+    //draws graph parsing the tree
     void drawg(std::vector<std::vector<std::vector<std::complex<int>>>> roots);
-
+    //builds tree from the sequence of nodes, returns root pointer
     treeNode* buildtree(std::vector<std::vector<std::vector<std::complex<int>>>> roots, std::string& str);
 private:
     
