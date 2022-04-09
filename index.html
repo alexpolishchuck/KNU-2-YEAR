@@ -32,12 +32,13 @@
             </div>
 
             <div id="logo_text_holder">
-                <p id="logo_title">
+                <p id="logo_subtitle">
                     +380 000 000 000
                 </p>
-                <p id="logo_title">
+                <p id="logo_subtitle">
                     +380 000 000 000
                 </p>
+                <a href="" id="feedback"> Feedback </a>
             </div>
 
             
@@ -49,7 +50,7 @@
 
     <div id="menu" >
         
-        <ul class="styled_list">
+        <ul class="menu_list">
             <li><a  href="https://www.youtube.com/watch?v=qVdPh2cBTN0&list=RDP-FrQnI3slU&index=9"  class="golden_text">Home</a> </li>
             <li>|</li>
             <li><a  href="https://www.youtube.com/watch?v=qVdPh2cBTN0&list=RDP-FrQnI3slU&index=9"  class="golden_text">Catalog</a></li>
@@ -64,27 +65,47 @@
 
     <div  id="slider">
 
+        
+            
+                <img  class="slider_image" src="images\slider\slide1.jpg" alt="">
+                <img  class="slider_image" src="images\slider\slide2.jpg" alt="">
+                <img  class="slider_image" src="images\slider\slide3.jpg" alt="">
+        
+        <div id="slider_interface">
+                <div id="left_button">❮</div>
+                <div id="right_button">❯</div>
+                
+                    <ul id="slider_selector">
+                        <li id="selector_line"> <div id="radio_button" class="custom_radio"></div> </li>
+                        <li id="selector_line"><div id="radio_button" class="custom_radio"></div></li>
+                        <li id="selector_line"><div id="radio_button" class="custom_radio"></div></li>
+                    </ul>
+                
+
+                
+
+        </div>
+        <script src="scripts/slider.js"></script>
     </div>
 
     <div id="path">
         <a href="" class="custom_a">Home</a>
         <span class="custom_a">/</span>
         <a href="" class="custom_a">Catalog</a>
+        <span class="custom_a">/</span>
+        <a href="" class="custom_a">Spotting russian occupants</a>
     </div>
 
     <div id="content"> 
         
-
-       <div id="container">
-
         <aside id="leftblock">
-        
+            <div id="leftblock_wrapper">
             <ul id="category_list">
                 <li>
                     <p><a href="" class="golden_text">Drones for:</a></p>
                     <ul id="subcategory_list" >
                         <li>
-                            <a href="" class="golden_text">Spotting russian occupants</a>
+                            <a href="" class="golden_text selected" >Spotting russian occupants</a>
                         </li>
                         <li>
                             <a href="" class="golden_text">Killing russian occupants</a>
@@ -100,24 +121,70 @@
                 <li><p><a href="" class="golden_text">Fixed-Wing Drones</a></p></li>
                 <li><p><a href="" class="golden_text">Single-Rotor Drones</a></p></li>
             </ul>
-
+            
+            <a href="downloadfiles\prices.xlsx" download >
+                <img src="images\excel_logo.png" alt="excel_logo" id="excel_logo">
+            </a>
+            
+        </div>
         </aside>
- 
+       <div id="container" class="container_width">
         <div id="centerblock">
-             <div id="item_holder">
+            <div id="item_holder">
+                <div id="item_wrapper">
+                    <div id="catalog_item">
+                        <img src="images\drone1.jpg" alt="product_image" id="item_image">
+                        <ul id="item_description" class="golden_text" >
+                            <li> <span>Name:</span>
+                                <p  class="lines_of_item" >The best freaking drone</p>
+                            </li>
+                            <li><span>Camera:</span>
+                                <p  class="lines_of_item" > Not Included</p>
+                            </li>
+                            <li><span>Description:</span>
+                                <p  class="lines_of_item">aaasssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssaa asd sdsadssssssssssss
+                                </p>
+                            </li>
+                        </ul>
+                            <p id="item_footer" class="golden_text">10$ </p>
+                    </div>
+                </div>
 
-                
-                
 
-               
-
-              
              </div>
 
+                <div id="selector" >
+                    <ul class="menu_list">
+                        <li id="selector_list_line">1</li>
+                        <li id="selector_list_line">2</li>
+                        <li id="selector_list_line">3</li>
+                    </ul>
+                </div>
 
+                <div id="centerblock_description">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard 
+                    dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen 
+                    book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                     It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                      publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                      orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard 
+                    dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen 
+                    book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                     It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                      publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                      orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard 
+                    dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen 
+                    book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                     It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                      publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                      orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard 
+                    dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen 
+                    book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                     It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                      publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </div>
 
         </div>
- 
        </div>
 
     </div>
