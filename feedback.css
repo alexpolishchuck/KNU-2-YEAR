@@ -1,0 +1,71 @@
+/*PT Sans*/
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+/*Oswald*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=PT+Sans&display=swap');
+
+
+#feedback_form_wrapper
+{
+height: fit-content;
+}
+
+#feedback_form
+{
+    display:flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 500px;
+    height: fit-content;
+    align-items: center;
+    border:1px solid black;
+    padding: 50px 0;
+    background-color: #433b3b;
+}
+
+.inp{
+    margin: auto;
+    height: 30px;
+    background-color: #433b3b;
+    color: #8A6E2F;
+}
+
+.txt_ar
+{
+    width: 300px;
+    height:90px;
+    margin: auto;
+    resize: none;
+    background-color: #433b3b;
+    color: #8A6E2F;
+}
+
+.form_label
+{
+
+    width: fit-content;
+    
+}
+
+.submit_button
+{
+    height: 50px;
+    width:150px;
+    
+}
+
+.inp::placeholder, .txt_ar::placeholder
+{
+    font-family: 'PT Sans', sans-serif;
+    
+    
+}
+.red_placeholder::placeholder
+{
+    
+    
+    color : #B22222;
+}
+.grey_placeholder::placeholder
+{
+    color: #696969;
+}

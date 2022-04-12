@@ -11,6 +11,8 @@ let leftbutton = document.getElementById("left_button");
 let rightbutton = document.getElementById("right_button");
 let len = slides.length;
 
+
+
 initialSlide();
 
 function activateSlide()
