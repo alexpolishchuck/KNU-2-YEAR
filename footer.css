@@ -1,0 +1,45 @@
+#footer
+{
+    font-family: 'PT Sans', sans-serif;
+     display: flex;
+     align-content:space-between;
+     
+     
+    width: 100%;
+    height: 150px;
+    background-color: #433b3b;
+    
+    min-width: 980px;
+
+}
+
+.description_list
+{
+    font-family: 'PT Sans', sans-serif;
+    font-weight:normal;
+    font-size: 14px;
+    list-style-type:none;
+}
+
+#footer > #container
+{
+    display: flex;
+    margin: auto;
+}
+
+#footer_lefttab
+{
+    display: flex;
+    margin: auto auto auto 20px;
+}
+#footer_centertab
+{
+    display: flex;
+    margin: auto auto auto 50px;
+}
+
+#footer_righttab
+{
+    display: flex;
+    margin: auto;
+}

@@ -1,0 +1,81 @@
+/*PT Sans*/
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+/*Oswald*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=PT+Sans&display=swap');
+
+.custom_table
+{
+    table-layout: fixed;
+    width: 50%;
+    border-collapse: collapse;
+    height: 100%;
+    background-color: #433b3b;
+    border-radius: 10px;
+    padding:10px;
+    
+}
+.custom_table tr:hover 
+{
+    transform: scale(1.1,1.1);
+    
+    box-shadow: 0 0 2px 6px #008B8B;
+}
+
+.custom_table tr:hover td
+{
+ 
+    border: 2px solid #34251A;
+    
+}
+
+.custom_table th:nth-child(1)
+{
+    width: 10%;
+}
+.custom_table th:nth-child(2)
+{
+    width: 20%;
+}
+.custom_table th:nth-child(3)
+{
+width: 60%;
+}
+.custom_table th:nth-child(4)
+{
+    width: 10%;
+}
+ .custom_table td
+{
+    border: 2px solid #34251A;
+   
+    
+    
+}
+.custom_table td, th{
+    overflow-wrap: break-word;
+    padding: 5px;
+    box-sizing: border-box;
+   
+}
+
+
+.custom_table tr
+{
+    display: none;
+    vertical-align: top;
+    transition-duration: 1s;
+    box-sizing: border-box;
+    background-color: #433b3b;
+}
+.table_wrapper
+{
+    width: 100%;
+    padding: 18px 10px 0 10px;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 10px;
+   
+}

@@ -73,7 +73,7 @@ function radbutholderClicked(ev)
             deactivateSlide();
         slideIndex = i;
         activateSlide();
-        
+        Timer = setTimeout(nextslide,4000);
         }
     }
   

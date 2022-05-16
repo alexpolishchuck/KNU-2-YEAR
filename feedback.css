@@ -6,9 +6,54 @@
 
 #feedback_form_wrapper
 {
+    display: none;
 height: fit-content;
+position: fixed;
+align-self: center;
+animation: forwards ease-in 0.5s;
+opacity: 0;
+margin-top: 200px;
+
 }
 
+@keyframes showFeedback /*fade effect*/
+{
+    
+ 
+0%
+{
+    opacity: 0;
+}
+
+50%
+{
+    opacity: 0.5;
+}
+100%
+{
+    opacity: 1;
+    display: block;
+}
+  
+}
+@keyframes hideFeedback /*fade effect*/
+{
+    
+0%
+{
+    opacity: 1;
+}
+
+50%
+{
+    opacity: 0.5;
+}
+100%
+{
+    opacity: 0;
+    display: none;
+}
+}
 #feedback_form
 {
     display:flex;
@@ -50,7 +95,7 @@ height: fit-content;
 {
     height: 50px;
     width:150px;
-    
+    background-color: #433b3b;
 }
 
 .inp::placeholder, .txt_ar::placeholder
@@ -68,4 +113,24 @@ height: fit-content;
 .grey_placeholder::placeholder
 {
     color: #696969;
+}
+#form_close_button
+{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ color: #FFFFFF;
+    
+    top: -30px;
+    right: -30px;
+    height: 30px;
+    width: 30px;
+    background-color: #008B8B;
+}
+#form_close_button:hover
+{
+    cursor: pointer;
+
 }

@@ -17,7 +17,7 @@
     
 }
 
-#catalog_item
+.catalog_item
 {
     background-color: #433b3b;
     border-radius: 10px 100px;
@@ -52,7 +52,7 @@ border-radius: 10px 100px;
     box-shadow: 0 0 2px 1px #000000;
 }
 
-#item_image
+.item_image
 {
     padding: 0 0 0 0;
     border-radius: 0 100px 0 0;
@@ -63,7 +63,7 @@ border-radius: 10px 100px;
   border-color: #000000;
    
 }
-#item_description
+.item_description
 {
     padding: 0 10px 0 30px;
     list-style-type: none;
@@ -73,7 +73,7 @@ border-radius: 10px 100px;
     
     width: 90%;
 }
-#item_footer
+.item_footer
 {
     margin-bottom: 10px;
     margin-top: auto;
