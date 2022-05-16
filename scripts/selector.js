@@ -4,7 +4,7 @@ let selector = document.getElementById("selector");
 let items = document.getElementsByClassName("item_wrapper");
 let length = items.length;
 let ind =0;
-let numberofitems = 2
+let numberofitems = 6
 let currentButtonId=0;
 
 

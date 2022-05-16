@@ -9,11 +9,13 @@
 {
     display: flex;
     flex-wrap: wrap;
-    width: fit-content;
+    width: 80%;
     flex-direction: row;
-    gap: 50px;
+    column-gap: 20%;
+    row-gap: 50px;
     align-content: space-between;
     margin: 10px;
+    justify-content: center;
     
 }
 

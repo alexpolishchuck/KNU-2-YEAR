@@ -25,10 +25,7 @@ body{
    
     
 }
-#wrapper
-{
-    
-}
+
 #header
 {
     font-family: 'PT Sans', sans-serif;
@@ -303,6 +300,7 @@ a:hover{
 {
     margin-left: 50px;
     margin-right: 50px;
+   
    
 }
 
